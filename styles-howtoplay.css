@@ -1,0 +1,13 @@
+.intro ul {
+    text-align: left;
+}
+
+.intro ul strong {
+    color: lightcoral;
+}
+
+.intro h2 {
+    text-align: left;
+    padding-left: 2%;
+    color: lightgreen;
+}
