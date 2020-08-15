@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>I/O Player vs. Player</title>
+    <link rel="stylesheet" href="styles-board.css">
+    <link rel="stylesheet" href="bs/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="bs/js/bootstrap.min.js"></script>      
+</head>
+<body style="background-color: #312E2B; color: white">
+    <div id="navbar-bs">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-9">
+                <h1 class="text-center" style="margin-bottom: 20px; margin-left: 50px;">Connect Four</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-9">
+                <div class="content-wrapper">
+                    <div id="board"></div>
+                </div>
+            </div>
+            <div class="col-3 my-auto">
+                <div class="content-wrapper">
+                    <div id="playerturn" class="text-center"></div>
+                    <form id="savingInformation" action="player.php" method="POST">
+                        <div id="savegamebtn" class="text-center" style="margin-bottom:10px;"><input type="submit" name="saveBtn" id="saveBtn" class="text-center matchhistory-elem btn btn-secondary btn-lg" style="margin-bottom:10px; width: 300px; background-color: #272522; border-color: #22201E; border-radius: 20px;" value="Save Game"></div>
+                        <input type="hidden" id="saveInfo" name="saveInfo" value="asd">
+                        <!-- <div id="bg-info"></div> -->
+                    </form>
+                    <div id="newgamebtn" class="text-center" style="margin-bottom:100px; margin-top:10px;"><button onclick="newGame()" class="text-center matchhistory-elem btn btn-primary btn-lg" style="width: 300px; border-radius: 20px;">New Game</button></div>
+                    <button id="savetoFileBtn" onclick="saveToFile()" class="text-center matchhistory-elem btn btn-secondary btn-lg" style="margin-bottom:10px; margin-top:10px; width: 300px; background-color: #272522; border-color: #22201E; border-radius: 20px;">Save Game to File</button>
+                    <label for="uploadFile">
+                        <span class="text-center matchhistory-elem btn btn-primary btn-lg" style="margin-bottom:10px; margin-top:10px; width: 300px; border-radius: 20px;">Upload Game from File</span>
+                        <input type="file" id="uploadFile" onchange="uploadFile()" style="display: none;">
+                    </label>
+                </div>
+            </div>
+        </div>   
+    </div>
+
+    <div id="footer" class="footer-wrapper"></div>
+</body>
+<script src="navbar_footer.js"></script>
+<script src="playervsplayer-script.js"></script>
+<script src="FileSaver.js"></script>
+<script>
+    function saveToFile() {
+        var data = recordMoves();
+        var fileName = "connect_four_game.json";
+
+        var fileToSave = new Blob([JSON.stringify(data)], {
+            type: 'application/json',
+            name: fileName
+        });
+
+        saveAs(fileToSave, fileName);
+    }
+
+    function uploadFile() {
+        var doc = document.getElementById("uploadFile").files[0];
+        console.log(doc.name);
+        var reader = new FileReader();
+        reader.readAsText(doc);
+        reader.onload = function(evt) {
+            var data = evt.target.result;
+            console.log("DATA: " + data);
+            var matchJSON = JSON.parse(data);
+            var startPlayer = matchJSON.starting_player;
+            var player0 = matchJSON.player0_moves;
+            var player1 = matchJSON.player1_moves;
+
+            newGame();
+            implementMoves(startPlayer, player0, player1);
+        };
+    }
+</script>
+
+</html>

@@ -201,7 +201,7 @@ function validate() {
                 }
             }
 
-            // Check cells up diagonal
+            // Check cells up left
             if ((r-3) >= 1 && (c-3) >= 1) {
                 var cell_1 = (((r)*INPUT)-INPUT)+(c);
                 var cell_2 = (((r-1)*INPUT)-INPUT)+(c-1);
@@ -296,46 +296,51 @@ function newGame() {
     // console.log(startingPlayer + "'s turn");
 }
 
-// Record movements
-function recordMoves() {
-    var date;
-    var dte = new Date();
-    var m = dte.getMonth();
-    var d = dte.getDate();
-    var y = dte.getFullYear();
-    var t = dte.getTime();
-    date = m + "-" + d + "-" + y + " " + t;
-    var match = {
-        match_date: date,
-        starting_player: this.startingPlayer,
-        player0_moves: this.player0moves,
-        player1_moves: this.player1moves
-    };
+// // Record movements
+// function recordMoves() {
+//     var date;
+//     var dte = new Date();
+//     var m = dte.getMonth() + 1;
+//     var d = dte.getDate();
+//     var y = dte.getFullYear();
+//     var h = dte.getHours();
+//     var min = dte.getMinutes();
+//     var mil = dte.getMilliseconds();
+//     date = m + "-" + d + "-" + y + " " + h + ":" + min + ":" + mil;
+//     var match = {
+//         match_date: date,
+//         starting_player: this.startingPlayer,
+//         player0_moves: this.player0moves,
+//         player1_moves: this.player1moves
+//     };
+//     return match;
+//     // var s = JSON.stringify(match);
+//     // const FileSystem = require("fs");
+//     // FileSystem.writeFile('file.json', s, (err) => {
+//     //     if (e) throw e;
+//     // });
 
-    return match;
-    // var s = JSON.stringify(match);
-    // const FileSystem = require("fs");
-    // FileSystem.writeFile('file.json', s, (err) => {
-    //     if (e) throw e;
-    // });
+//     // window.location.href = "server-mh.php?w1=" + s;
+//     // alert(s);
+//     // var fs = require("match-history.json", s);
+//     // localStorage    
+// }
 
-    // window.location.href = "server-mh.php?w1=" + s;
-    // alert(s);
-    // var fs = require("match-history.json", s);
-    // localStorage    
-}
+// function savegame() {
+//     console.log("Saving Game");
+//     var record = JSON.stringify(recordMoves());
+//     var saveM = document.getElementById("saveInfo").value = record;
+//     return record;
+//     // const match = JSON.parse(localStorage.getItem("match")) || [];
+//     // console.log(match);
+//     // var record = recordMoves();
+//     // match.push(record);
+//     // console.log(record);
 
-function savegame() {
-    console.log("Saving Game");
-    const match = JSON.parse(localStorage.getItem("match")) || [];
-    console.log(match);
-    var record = recordMoves();
-    match.push(record);
-    console.log(record);
-
-    localStorage.setItem("match", JSON.stringify(match));
-    alert('Game Saved! Access your game in the Match History.');
-}
+//     // localStorage.setItem("match", JSON.stringify(match));
+//     // alert('Game Saved! Access your game in the Match History.');    
+//     // When saving game, push this information to a new link.
+// }
 
 function loadgame() {
     var id = localStorage.getItem("id");

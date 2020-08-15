@@ -3,38 +3,45 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I/O Chess</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>I/O Home</title>
+    <link rel="stylesheet" href="bs/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="bs/js/bootstrap.min.js"></script>
+
 </head>
-
-<body>
-    <div id="navbar" class="container"></div>
-
-
-    <div class="header">
-        <div class="intro">
-            <h1>A Brief History</h1>
-            <blockquote id="history-desc">
-                The popular and widely-known game of Chess can be traced back to its origins in 6th century India. In history, <br>
-                Chess has been known as not just a game, but also a tool of military strategy. As trade transpired, the game <br>
-                of Chess began to transcend cultures and many variations of the game developed. In China, Chess pieces were <br>
-                placed at the intersections of board squares rather than inside them. Mongolians created larger 11x10 boards <br>
-                with safe squares. Meanwhile, in Japan, captured pieces could be used by the opposing player. However, it was <br>
-                in Europe that the game of Chess that we know now began to take form. The game of Chess even became part of <br>
-                their education! Chess became a symbol of how different social classes performed their social roles; and Chess <br>
-                pieces were reinterpreted into what they are now. As time progressed, Chess became more popular and players <br>
-                proliferated. In 1997, an IBM computer named Deep Blue was the first computer to defeat the sitting Chess <br>
-                champion, Garry Kasparov. Today, Chess software is capable of consistently defeating the best human players. <br>
-                Chess continues to be a highly popular pastime and its players make up one of the largest communities in the world.
-            </blockquote>
-            
-            <p style="margin-top: 100px;">For more information about chess, such as strategies, history and more, <a href="http://www.google.com/search?q=chess" style="text-decoration: none; color: lightblue;">click here.</a></p>
+<body style="background-color: #312E2B; color: white">
+    <div id="navbar-bs">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center" style="margin-bottom: 20px;">A Brief History</h1>
+        
+                <div class="card" style="background-color: #272522; border-color: #22201E; border-radius: 20px;">
+                    <img class="card-img-top img-fluid rounded mx-auto d-block" src="Images/Connect-Four-HIST.png" style="width: 750px; margin-top: 20px; ">
+                    <div class="card-body">
+                      <h5 class="card-text text-center">Connect Four is a two-player board game that got its 
+                        concept from the widely known game of Tic-Tac-Toe, a three in a row pencil 
+                        and paper game. The Milton Bradley Company, a company well-known for the 
+                        creation of various board games and video games, created this board game in 
+                        1974. In the official game of Connect Four, there are 42 black and red checkered
+                        pieces; 21 of each color. Players each choose one of the black or red checkered 
+                        pieces and take turns dropping their colored piece from the top of a vertical game 
+                        board. A typical Connect Four game board contains seven columns and six rows of space 
+                        for game pieces to fall straight down, taking the lowest space that is unoccupied 
+                        in the column it was dropped into. The goal of the game is to be the first player to 
+                        form a horizontal, vertical, or diagonal line of four checkered pieces in the player’s 
+                        color of choice.</h5>
+                        <p class="card-text text-center" style="margin-top: 100px;">For more information about Connect Four, such as strategies, history and more, <a href="http://www.google.com/search?q=connect+four" style="text-decoration: none; color: lightblue;">click here.</a></p>
+                    </div>
+                </div>
+            </div>  
         </div>
     </div>
 
-    <div id="footer" class="footer-wrapper"></div>
 
+    <div id="footer" class="footer-wrapper"></div>
 </body>
 <script src="navbar_footer.js"></script>
 </html>

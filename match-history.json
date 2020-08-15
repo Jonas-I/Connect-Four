@@ -1,0 +1,28 @@
+{
+    "match": [
+        {
+            "match_date": "6-3-2020",
+            "startingPlayer": "player1",
+            "player0moves": [1,2,3],
+            "player1moves": [1,2,3],
+        },
+        {
+            "startingPlayer": "player1",
+            "player0moves": [1,2,3,4],
+            "player1moves": [1,2,3,0,0],
+            "result": "blue"
+        },
+        {
+            "startingPlayer": "player1",
+            "player0moves": [1,2,3,4],
+            "player1moves": [1,2,3,0,0],
+            "result": "red"
+        },
+        {
+            "startingPlayer": "player1",
+            "player0moves": [1,2,3,4],
+            "player1moves": [1,2,3,0,0],
+            "result": "tie"
+        }
+    ]
+}
